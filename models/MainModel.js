@@ -7,27 +7,26 @@ const _ = require('lodash');
 
 class MainModel {
 	constructor(connection) {
-		//console.log(connection);
 		this._connection = connection;
 		//this._connection_radius = connection_radius;
+	}
 
-		this.query = Promise.promisify(this._connection.query);
-
+	query(queryString) {
+		return Promise.resolve([{
+			id: 1,
+			user: 'rohde'
+		}]);
 		/*
-			Short way of:
+		return new Promise((resolve, reject) => {
+			this._connection.query(queryString, (err, response) => {
+				if (err) {
+					reject(err);
+				}
 
-			query(queryString) {
-				return new Promise((resolve, reject) => {
-					this._connection.query(queryString, (err, response) => {
-						if (err) {
-							reject(err);
-						}
-						
-						resolve(response);
-					})
-				});
-			}
-		 */
+				resolve(response);
+			})
+		});
+		*/
 	}
 
 	fetch(limit) {

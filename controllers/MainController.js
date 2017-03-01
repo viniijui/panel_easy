@@ -6,6 +6,7 @@ const main = new models.MainModel(connection);
 class MainController {
 	index() {
 		return main.get()
+			.tap(console.log) // <- promise inspector, pode remover
 			.then(main => ({
 				template: 'dashboard',
 				params: {

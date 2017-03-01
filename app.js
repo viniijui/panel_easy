@@ -18,7 +18,7 @@ app.use('/', routes);
 
 
 
-app.listen(process.env.PORT || 8080, () => console.log(`Server running on port ${process.env.PORT || 3000}`));
+app.listen(process.env.PORT || 8080, () => console.log(`Server running on port ${process.env.PORT || 8080}`));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

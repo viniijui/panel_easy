@@ -7,7 +7,7 @@ const _ = require('lodash');
 class PageModel {
 	constructor(connection) {
 		this._connection = connection;
-		console.log(connection);
+		// console.log(connection);
 	}
 
 	fetch(limit) {
