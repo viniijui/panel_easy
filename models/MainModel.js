@@ -1,4 +1,3 @@
-
 'use strict';
 
 const Promise = require('bluebird');
@@ -11,8 +10,24 @@ class MainModel {
 		//console.log(connection);
 		this._connection = connection;
 		//this._connection_radius = connection_radius;
-		
+
 		this.query = Promise.promisify(this._connection.query);
+
+		/*
+			Short way of:
+
+			query(queryString) {
+				return new Promise((resolve, reject) => {
+					this._connection.query(queryString, (err, response) => {
+						if (err) {
+							reject(err);
+						}
+						
+						resolve(response);
+					})
+				});
+			}
+		 */
 	}
 
 	fetch(limit) {
