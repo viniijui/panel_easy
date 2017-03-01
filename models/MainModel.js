@@ -11,13 +11,9 @@ class MainModel {
 		//console.log(connection);
 		this._connection = connection;
 		//this._connection_radius = connection_radius;
+		
+		this.query = Promise.promisify(this._connection.query);
 	}
-
-
-	show() {
-		return Promise.resolve();
-	}
-
 
 	fetch(limit) {
 		limit = limit || 10;
@@ -47,13 +43,8 @@ class MainModel {
 	}
 
 	get() {
-		this._connection.query('select * from hotspots where id = 1', (err, response) => {
-			if (err) {
-				return err;
-			}
-			return 	response[0];
-		});
-
+		return this.query('select * from hotspots where id = 1')
+			.get(0); // See http://bluebirdjs.com/docs/api/get.html
 	}
 
 	save(data) {

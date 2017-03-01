@@ -5,8 +5,7 @@ const main = new models.MainModel(connection);
 
 class MainController {
 	index() {
-        console.log(main.get());
-		return main.show()
+		return main.get()
 			.then(main => ({
 				template: 'dashboard',
 				params: {
